@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        /* Add some basic styling for the button */
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Show/Hide Divs and Change Button Text</title>
+</head>
+<body>
+
+    <div id="div1">Div 1</div>
+    <div id="div2">Div 2</div>
+    <div id="div3">Div 3</div>
+    <div id="div4">Div 4</div>
+    <div id="div5">Div 5</div>
+    <div id="div6">Div 6</div>
+    <div id="div7">Div 7</div>
+    <div id="div8">Div 8</div>
+    <div id="div9" class="hidden">Div 9</div>
+    <div id="div10" class="hidden">Div 10</div>
+
+    <button onclick="toggleDivs()">Toggle Divs</button>
+
+    <script>
+        function toggleDivs() {
+            var hiddenDivs = document.querySelectorAll('#div9, #div10');
+            hiddenDivs.forEach(function(div) {
+                div.classList.toggle('hidden');
+            });
+
+            var buttonText = document.getElementById('myButton');
+            if (hiddenDivs[0].classList.contains('hidden')) {
+                buttonText.innerHTML = 'Show More';
+            } else {
+                buttonText.innerHTML = 'Show Less';
+            }
+        }
+    </script>
+
+</body>
+</html>

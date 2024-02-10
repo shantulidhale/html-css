@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.notepad {
+    border: 2px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+}
+
+.controls {
+    margin-top: 10px;
+}
+
+button {
+    margin: 5px;
+}
+
+.output {
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="notepad">
+        <textarea id="input" rows="10" cols="40" placeholder="Enter text here"></textarea>
+        <div class="controls">
+            <button id="calculate">Calculate</button>
+            <button id="clear">Clear</button>
+        </div>
+        <div class="output">
+            <p>Result: <span id="result"></span></p>
+        </div>
+    </div>
+    <script >
+        // Get DOM elements
+const inputTextarea = document.getElementById('input');
+const calculateButton = document.getElementById('calculate');
+const clearButton = document.getElementById('clear');
+const resultSpan = document.getElementById('result');
+
+// Add event listener to the Calculate button
+calculateButton.addEventListener('click', () => {
+    const text = inputTextarea.value;
+    
+    try {
+        // Evaluate the arithmetic expression
+        const result = eval(text);
+        
+        // Display the result
+        resultSpan.textContent = isNaN(result) ? 'Invalid expression' : result;
+    } catch (error) {
+        resultSpan.textContent = 'Invalid expression';
+    }
+});
+
+// Add event listener to the Clear button
+clearButton.addEventListener('click', () => {
+    inputTextarea.value = '';
+    resultSpan.textContent = '';
+});
+
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size: 3.5rem;
+            line-height: 1.2;
+            max-width: 15ch;
+        }
+
+        .parent{
+            display: flex;
+        }
+        .child{
+            width: 150px;
+            height: 150px;
+            transform: rotate(60deg);
+            border: 1px solid red;
+            background-color: hotpink;
+            
+        }
+         fieldset
+         {
+            width: 400px;
+            height: 500px;
+            background-color: hotpink;
+            font-size: larger;
+            font-weight: bold;
+           
+
+            
+         }
+         legend{
+            text-align: center;
+            font-size:xx-large;
+            font-weight: bold;
+            color: red;
+
+         }
+          
+    </style>
+</head>
+<body>
+    
+<script>
+    "use strict"
+   let a=100;
+    console.log(a);
+
+//  let b=   alert('what is this!');
+//     console.log(b);
+// let name=prompt("What is your name",'shantuli');
+// console.log(name);
+
+// let deletePost = confirm("Do you really want to delete this post?");
+// console.log(deletePost);
+// alert('1'+2);
+// alert(1+'2');
+// alert(0==false);
+// alert(0=="");
+
+// let i = 50;
+// switch (i) {
+//     case 0:
+//         console.log("i is zero.");
+//         break;
+//     case 1:
+//         console.log("i is one.");
+//         break;
+//     case 2:
+//         console.log("i is two.");
+//         break;
+//     default:
+//         console.log("i is greater than 2.");
+// }
+
+// function sub(a,b){
+//     let  good=a-b;
+//     return good;
+// }
+ 
+// let modultation=function(a,b){
+//     let result=a%b;
+//     return result;
+// }
+
+//  var sum =(a,b)=> a+b;
+//  console.log(sum(10,20));
+ 
+//  var substraction =(c,d)=>c-d;
+//  console.log(substraction(50,10));
+
+//  var multi=(cc,dd)=>cc*dd;
+//  console.log(multi(10,10));
+
+//  var modulation=(e,f)=>e%f;
+//  console.log(modulation(100,10));
+
+//  var divide=(g,h)=>g/h;
+//  console.log(divide(500,10));
+
+  
+</script>
+<a href="myfirstproject.html">click Now!</a>
+<h1>Hii My name is Shantuli...</h1>
+<!-- <p>lorem</p> -->
+
+<!-- 
+<div class="parent">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+</div> -->
+
+<fieldset>
+    <legend>List Points Demo</legend>
+    <ul>
+        <li>Apple</li>
+        <li>mango</li>
+        <li>custerdApple</li>
+    <br>
+    <ol>
+        <li>Mobile</li>
+        <li>laptop</li>
+        <li>Table</li>
+        <br>
+        <ol type="A">
+            <li>charger</li>
+            <li>Board</li>
+            <li>bags</li>
+            <br>
+            <ol type="i">
+                <li>Shantuli</li>
+                <li>Pink</li>
+                <li>black</li>
+                <br>
+                <ol reversed start="3">
+                    <li>Opera</li>
+                    <li>Instagrma</li>
+                    <li>Chrome</li>
+                </ol>
+            </ol>
+        </ol> 
+    </ol>
+    </ul>
+</fieldset>
+</body>
+</html>

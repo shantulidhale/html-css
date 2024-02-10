@@ -1,0 +1,121 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Save Text on Ctrl+S</title>
+</head>
+<body>
+    <textarea id="text-input" placeholder="Enter text"></textarea>
+
+    <script>
+        const textInput = document.getElementById('text-input');
+
+        // Function to save text to local storage
+        function saveText() {
+            const text = textInput.value;
+            localStorage.setItem('savedText', text);
+        }
+
+        // Check if there's previously saved text and populate the textarea
+        const savedText = localStorage.getItem('savedText');
+        if (savedText) {
+            textInput.value = savedText;
+        }
+
+        // Listen for the Ctrl + S key press and save the text
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 's') {
+                event.preventDefault(); // Prevent the default browser save action
+                saveText();
+                alert('Text saved!');
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        padding-left: 5px;
+        padding-top: 5px;
+      }
+      .container {
+        border: 1px black;
+
+        width: 100%;
+      }
+      #text-area {
+        resize: none;
+        height: 800px;
+        width: 100%;
+        border: none;
+        line-height: 1rem;
+        outline: none;
+        font-family: monospace;
+      
+      }
+
+      #create-file-button,
+      #save-button {
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      .area {
+        display: flex;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <textarea id="text-area" oninput="updateInfo()"></textarea>
+      <div class="parent">
+        <div class="world">
+          Lines: <span id="line-count">0</span>
+           Characters:<span id="char-count">0</span>
+            Words: <span id="word-count">0</span>
+          <div class="area"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const textArea = document.getElementById("text-area");
+      const lineCount = document.getElementById("line-count");
+      const charCount = document.getElementById("char-count");
+      const wordCount = document.getElementById("word-count");
+      const saveButton = document.getElementById("save-button");
+      const createFileButton = document.getElementById("create-file-button");
+
+      // Function to update line, character, and word counts
+      function updateInfo() {
+        const text = textArea.value;
+        const lines = text.split("\n").length;
+        const characters = text.length;
+        const words = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
+        lineCount.textContent = lines;
+        charCount.textContent = characters;
+        wordCount.textContent = words;
+        const notepadData = textArea.value;
+        localStorage.setItem("notepadData", notepadData);
+      }
+      //Load saved data on page load
+      window.onload = function () {
+        const savedData = localStorage.getItem("notepadData");
+        if (savedData) {
+          textArea.value = savedData;
+          updateInfo();
+        }
+      };
+    </script>
+  </body>
+</html>
+

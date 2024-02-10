@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Monoton&display=swap" rel="stylesheet">
+  <!-- <script src="https://kit.fontawesome.com/33042e1aad.js" crossorigin="anonymous"></script> -->
+
+  <!-- <style>
+    .hidden {
+      display: none;
+    }
+  </style> -->
+  <title>Show/Hide Divs</title>
+
+  <style>
+.parent{
+  width: 100%;
+  border: 1px solid red;
+  height: 440px;
+  background-color: aquamarine;
+  position: relative;
+  z-index: 1;
+}
+.child{
+  border: 1px solid black;
+  height: 400px;
+  width: 100%;
+  position: absolute;
+}
+#first
+{
+  background-color: black;
+  z-index: 2;
+}
+#second{
+  background-color: cyan;
+  z-index: 1;
+}
+  </style>
+</head>
+<body>
+  
+  <div class="parent">
+    <div class="child" id="first"></div>
+    <div class="child" id="second"></div>
+  </div>
+  <button >click</button>
+  <script>
+
+  </script>
+  <!-- <div class="parent">
+    <div id="div1">Div 1</div>
+  <div id="div2">Div 2</div>
+  <div id="div3">Div 3</div>
+  <div id="div4">Div 4</div>
+  <div id="div5">Div 5</div>
+  <div id="div6">Div 6</div>
+  <div id="div7">Div 7</div>
+  <div id="div8">Div 8</div>
+  <div id="div9">Div 9</div>
+  <div id="div10">Div 10</div>
+  </div>
+
+  <button id="myButton" onclick="changeText()">
+    Load More <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    function changeText() {
+    // .parent div:nth-child(9)
+    
+      var divsToToggle = document.querySelectorAll(' .parent div:nth-child(10)  ');
+
+      divsToToggle.forEach(function (div) {
+        div.classList.toggle('hidden');
+      });
+
+      var button = document.getElementById('myButton');
+      var icon = button.querySelector('i');
+
+      if (button.innerHTML.includes('Load More')) {
+        button.innerHTML = 'Show less <i class="fas fa-arrow-down"></i>';
+      } else {
+        button.innerHTML = 'Load More <i class="fas fa-arrow-up"></i>';
+      }
+    }
+  </script> -->
+
+
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add some basic styling for the button */
+    button {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+  <title>Button Text Change</title>
+</head>
+<body>
+
+
+
+<script>
+
+</script>
+-->
+
+</body>
+</html>
+
+  

@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Line Numbers</title>
+  <style>
+    #myTextarea {
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <textarea id="myTextarea" rows="5" cols="30"></textarea>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the textarea element
+      var textarea = document.getElementById("myTextarea");
+
+      // Add event listener for input (typing) in the textarea
+      textarea.addEventListener("input", function() {
+        updateLineNumbers();
+      });
+
+      // Function to update line numbers
+      function updateLineNumbers() {
+        // Get the current text content of the textarea
+        var currentText = textarea.value;
+
+        // Split the text into lines
+        var lines = currentText.split("\n");
+
+        // Update the textarea with line numbers
+        var numberedText = lines.map(function(line, index) {
+          return (index + 1) ; ". " + line;
+        }).join("\n");
+
+        textarea.value = numberedText;
+      }
+    });
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Counter</title>
+  <style>
+    #code {
+      position: relative;
+    }
+
+    .line-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 5px;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div id="codeContainer" style="display: flex; border: 2px solid black; width: 300px; height: 200px;"> 
+    <!-- <textarea value="lineNumbers" name="" id="" cols="30" rows="10"></textarea> -->
+
+    <div id="lineNumbers" style="width: 25px; height: 200px; border: 2px solid red;" ></div>
+    <pre id="code" rows="10" cols="30"  style="height: 200px;" oninput="countLines()" onkeydown="checkEnterKey(event)"></pre>
+    
+ </div>
+  <script>
+    function countLines() {
+      // Get the text from the textarea
+      var code = document.getElementById('code').value;
+
+      // Split the text into lines
+      var lines = code.split('\n');
+
+      // Update the line count
+      document.getElementById('lineCount').textContent = lines.length;
+
+      // Update line numbers
+      updateLineNumbers(lines.length);
+    }
+
+    function updateLineNumbers(lineCount) {
+      var lineNumbersDiv = document.getElementById('lineNumbers');
+      lineNumbersDiv.innerHTML="";
+
+      for (var i = 1; i <= lineCount; i++) {
+        var lineNumberDiv = document.createElement('div');
+        lineNumberDiv.textContent = i;
+        lineNumbersDiv.appendChild(lineNumberDiv);
+        console.log(lineNumbersDiv);
+      }
+    }
+
+    function checkEnterKey(event) {
+      if (event.key === 'Enter') {
+        // Re-count lines and update line numbers
+        var code = document.getElementById('code').value;
+        var lines = code.split('\n');
+        updateLineNumbers(lines.length);
+      }
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        span{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="first">
+    <button onclick="myfun(first.value)">Click Me</button>
+    <div class="motha" id="motha"></div>
+    <script>
+        let d=document.getElementById('motha')
+        let a=document.getElementById('first');
+        function myfun(b)
+        {
+            // localStorage.clear()
+             let div=document.createElement('div');
+             div.innerHTML=b;
+             let span = document.createElement("span")
+             span.innerHTML="&times;"
+             div.appendChild(span)
+            d.appendChild(div);
+
+            console.log(d.innerHTML)
+            saveData() 
+        }
+        function saveData()
+        {
+            localStorage.setItem("data",d.innerHTML)
+        }
+        function showData()
+        {
+        let d=document.getElementById('motha')
+        d.innerHTML=localStorage.getItem("data");
+
+        }
+        showData()
+        let z=document.getElementById('motha')
+        z.addEventListener("click",(e)=>{
+            console.log(e.target.tagName)
+            if(e.target.tagName=='SPAN'){
+                e.target.parentElement.remove();
+            }
+            saveData()
+        })
+        debugger;
+        
+        // localStorage.clear()
+    </script>
+</body>
+</html>
